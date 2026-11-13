@@ -4,7 +4,7 @@ ini_set("display_startup_errors", 0);
 ini_set("log_errors", 1);
 ini_set("error_log", "errors.log");
 error_reporting(E_ALL);
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Europe/Istanbul");
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -471,9 +471,9 @@ $csrf_token = csrf_token_generate();
 
               <!-- Phone Number -->
               <div class="row mb-3">
-                <label for="phone-number" class="col-sm-3 col-form-label">Phone Number &#127470;&#127465; <small class="text-danger">*</small></label>
+                <label for="phone-number" class="col-sm-3 col-form-label">Phone Number (Türkiye +90) <small class="text-danger">*</small></label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control<?php echo (isset($errors["phone_number"]) && !empty($errors["phone_number"])) ? " is-invalid" : ""; ?>" id="phone-number" name="phone_number" placeholder="62xxx / 0xxx" value="<?php echo isset($old_values["phone_number"]) ? $old_values["phone_number"] : ""; ?>" autocomplete="off">
+                  <input type="text" class="form-control<?php echo (isset($errors["phone_number"]) && !empty($errors["phone_number"])) ? " is-invalid" : ""; ?>" id="phone-number" name="phone_number" placeholder="+905xxxxxxxxx / 05xxxxxxxxx" value="<?php echo isset($old_values["phone_number"]) ? $old_values["phone_number"] : ""; ?>" autocomplete="off">
                   <div class="invalid-feedback">
                     <?php echo isset($errors["phone_number"]) && !empty($errors["phone_number"]) ? $errors["phone_number"] : ""; ?>
                   </div>
