@@ -70,19 +70,19 @@ define("GTC_HMAC_SECRET_KEY", "31426764382a642f3a6665497235466f3d236d5d785b722b4
 /**
  * GetContact Header Values
  */
-define("GTC_COUNTRY_CODE", "id");
+define("GTC_COUNTRY_CODE", "tr");
 define("GTC_ANDROID_OS", "android 9"); // i.e.: "android 5.1", "android 9"
 define("GTC_APP_VERSION", "8.4.0"); // i.e.: "5.6.2", "8.4.0"
 define("GTC_CLIENT_DEVICE_ID", "174680a6f1765b5f"); // 16 digit random hex value
-define("GTC_LANG", "en_US"); // i.e.: "in_ID", "en_US"
+define("GTC_LANG", "tr_TR"); // i.e.: "in_ID", "en_US"
 define("GTC_BUNDLE_ID", "app.source.getcontact");
 define("GTC_CARRIER_COUNTRY_CODE", "510");
 define("GTC_CARRIER_NAME", "Indosat Ooredoo");
 define("GTC_CARRIER_NETWORK_CODE", "01");
 define("GTC_DEVICE_NAME", "SM-G977N");
 define("GTC_DEVICE_TYPE", "Android");
-define("GTC_TIME_ZONE", "Asia/Bangkok");
-define("GTC_OUTSIDE_COUNTRY_CODE", "ID");
+define("GTC_TIME_ZONE", "Europe/Istanbul");
+define("GTC_OUTSIDE_COUNTRY_CODE", "TR");
 
 define("VFK_HMAC_SECRET_KEY", "3452235d713252604a35562d325f765238695738485863672a705e6841544d3c7e6e45463028266f372b544e596f3829236b392825262e534a7e774f37653932");
 
