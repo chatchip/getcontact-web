@@ -109,18 +109,22 @@ try {
 
       #region Validate phone number
 
-      if (strpos($phone_number, "0") === 0) {
-        $phone_number = "+62" . substr($phone_number, 1);
-      } else if (strpos($phone_number, "62") === 0) {
-        $phone_number = "+" . $phone_number;
-      } else if (strpos($phone_number, "-") !== false || strpos($phone_number, " ") !== false) {
-        $phone_number = str_replace(["-", " "], "", $phone_number);
-      } else {
-        $alert["type"] = "warning";
-        $alert["message"] = "Form data is invalid";
-        $errors["phone_number"] = "Phone number is invalid";
+      // Normalize Turkish mobile numbers to E.164 without modifying the account identity.
+      $digits = preg_replace('/\\D+/', '', (string)$phone_number);
+      if (substr($digits, 0, 4) === '0090') {
+        $digits = substr($digits, 2);
+      } elseif (strlen($digits) === 11 && substr($digits, 0, 1) === '0') {
+        $digits = '90' . substr($digits, 1);
+      } elseif (strlen($digits) === 10 && substr($digits, 0, 1) === '5') {
+        $digits = '90' . $digits;
+      }
+      if (!preg_match('/^905[0-9]{9}$/', $digits)) {
+        $alert['type'] = 'warning';
+        $alert['message'] = 'Türkiye cep telefonu numarası girin: 05XX XXX XX XX veya +90 5XX XXX XX XX';
+        $errors['phone_number'] = 'Geçersiz Türkiye cep telefonu numarası';
         break;
       }
+      $phone_number = '+' . $digits;
 
       #endregion
 
